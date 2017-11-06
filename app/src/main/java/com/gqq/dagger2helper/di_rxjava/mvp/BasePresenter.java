@@ -40,7 +40,7 @@ public class BasePresenter<T extends MvpView> implements MvpPresenter<T> {
         compositeDisposable.add(disposable);
     }
 
-    class MvpViewNotAttachedException extends RuntimeException {
+    public static class MvpViewNotAttachedException extends RuntimeException {
         public MvpViewNotAttachedException() {
             super("Please call Presenter.attachView(MvpView) before use");
         }

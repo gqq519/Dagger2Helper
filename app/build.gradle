@@ -26,6 +26,10 @@ android {
             buildConfigField "String", "BASE_URL", '"http://gank.io/api/"'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {

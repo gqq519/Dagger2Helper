@@ -13,7 +13,7 @@ import retrofit2.http.GET;
 
 public interface GankService {
 
-    @GET("/data/Android/10/1")
+    @GET("http://gank.io/api/data/Android/10/1")
     Single<ApiResponse<List<GankModel>>> getGankData();
 
 }

@@ -4,6 +4,8 @@ import com.gqq.dagger2helper.di_rxjava.rxjava.ResponseTransformer;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Single;
 
 /**
@@ -14,6 +16,7 @@ public class GankRepository {
 
     private GankService gankService;
 
+    @Inject
     public GankRepository(GankService gankService) {
         this.gankService = gankService;
     }

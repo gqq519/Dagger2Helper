@@ -2,6 +2,9 @@ package com.gqq.dagger2helper.di_google;
 
 import com.gqq.dagger2helper.DaggerApplication;
 import com.gqq.dagger2helper.ActivityBuildersModule;
+import com.gqq.dagger2helper.di_rxjava.ApiModule;
+import com.gqq.dagger2helper.di_rxjava.gank.GankActivityModule;
+import com.gqq.dagger2helper.di_rxjava.gank.GankRepositoryModule;
 
 import javax.inject.Singleton;
 
@@ -15,9 +18,11 @@ import dagger.android.AndroidInjectionModule;
 
 @Singleton
 @Component(modules = {
+        ApiModule.class,
         DripCoffeeModule.class,
         AndroidInjectionModule.class,
-        ActivityBuildersModule.class
+        ActivityBuildersModule.class,
+        GankRepositoryModule.class
 })
 public interface CoffeeShop {
     @Component.Builder

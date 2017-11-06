@@ -129,4 +129,4 @@ Component接口主要是在使用注解前进行初始化，一般是在Applicat
         coffeeMaker.brew();
 完美Over！
 
-di_Dagger2结合RxJava2＋MVP＋Retrofit。
+di_rxjava包：结合RxJava2＋MVP＋Retrofit的一个实例Demo。

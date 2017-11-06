@@ -44,4 +44,8 @@ public class GankModel {
     @SerializedName("images")
     private List<String> images;
 
+    @Override
+    public String toString() {
+        return desc;
+    }
 }
