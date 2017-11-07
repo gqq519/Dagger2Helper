@@ -2,8 +2,6 @@ package com.gqq.dagger2helper.di_rxjava.gank;
 
 import com.gqq.dagger2helper.di_rxjava.mvp.gank.GankPresenter;
 
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 
@@ -18,6 +16,4 @@ public class GankActivityModule {
     public static GankPresenter provideGankPresenter(GankRepository gankRepository) {
         return new GankPresenter(gankRepository);
     }
-
-
 }

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gqq.dagger2helper">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".DaggerApplication"
@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".di_google.DaggerActivity" />
-        <activity android:name=".di_rxjava.Dagger2Activity"></activity>
+        <activity android:name=".di_rxjava.Dagger2Activity" />
+        <activity android:name=".di_rxjava.Dagger3Activity"></activity>
     </application>
 
 </manifest>

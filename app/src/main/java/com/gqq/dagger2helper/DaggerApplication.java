@@ -29,6 +29,8 @@ public class DaggerApplication extends Application implements HasActivityInjecto
     @Override
     public void onCreate() {
         super.onCreate();
+
+        // 利用Dagger生成的实现类进行初始化
         DaggerCoffeeShop.builder().application(this).build().inject(this);
         DaggerAppComponent.builder().application(this).build().inject(this);
     }

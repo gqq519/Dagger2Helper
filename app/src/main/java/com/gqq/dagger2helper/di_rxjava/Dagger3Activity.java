@@ -1,7 +1,6 @@
 package com.gqq.dagger2helper.di_rxjava;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,30 +18,23 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import dagger.android.AndroidInjection;
 
-public class Dagger2Activity extends AppCompatActivity implements GankContract.View {
+public class Dagger3Activity extends BaseActivity implements GankContract.View {
 
-    // 使用：Dagger2会自动到GankActivityModule中找到对应的依赖
     @Inject
     GankPresenter presenter;
 
-    @BindView(R.id.listview)
-    ListView listview;
     @BindView(R.id.btn_load)
     Button btnLoad;
+    @BindView(R.id.listview)
+    ListView listView;
     @BindView(R.id.progress)
     ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dagger2);
-        ButterKnife.bind(this);
-
-        AndroidInjection.inject(this);
     }
 
     @Override
@@ -51,16 +43,20 @@ public class Dagger2Activity extends AppCompatActivity implements GankContract.V
         presenter.attachView(this);
     }
 
+    @OnClick(R.id.btn_load)
+    void onViewClicked() {
+        presenter.getGankData();
+    }
+
     @Override
-    protected void onStop() {
-        super.onStop();
-        presenter.detachView();
+    protected int getLayoutId() {
+        return R.layout.activity_dagger2;
     }
 
     @Override
     public void showLoading() {
-        progress.setVisibility(View.VISIBLE);
         btnLoad.setVisibility(View.GONE);
+        progress.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -70,22 +66,17 @@ public class Dagger2Activity extends AppCompatActivity implements GankContract.V
 
     @Override
     public void showError(Throwable throwable, boolean isShowErrorPage) {
-        Toast.makeText(this, "error:"+throwable.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "error:" + throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showContentView() {
-        progress.setVisibility(View.GONE);
         btnLoad.setVisibility(View.VISIBLE);
+        progress.setVisibility(View.GONE);
     }
 
     @Override
     public void gankLoaded(List<GankModel> data) {
-        listview.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,data));
-    }
-
-    @OnClick(R.id.btn_load)
-    public void onViewClicked() {
-        presenter.getGankData();
+        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, data));
     }
 }

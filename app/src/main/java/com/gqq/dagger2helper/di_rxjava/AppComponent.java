@@ -18,6 +18,14 @@ import dagger.android.AndroidInjectionModule;
  * Created by gqq on 17/11/1.
  */
 
+/**
+ * 1. modules
+ *    a. AndroidInjectionModule：Dagger2提供，源码：
+ *      Contains bindings to ensure the usability of {@code dagger.android} framework classes. This module should be installed in the component that is used to inject the {@link android.app.Application} class.
+ *    b. ActivityBuildersModule：自定义，Activity使用Dagger注解，需要提供Activity的Builder
+ *    c. GankRepositoryModule、ApiModule等提供需要的实例化类的依赖
+ * 2. inject()：注解的初始化
+ */
 @Singleton
 @Component(modules = {
         ApiModule.class,

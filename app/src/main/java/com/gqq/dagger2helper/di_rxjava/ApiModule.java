@@ -20,6 +20,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class ApiModule {
 
+    /**
+     * okhttp 的初始化，单例
+     * @return
+     */
     @Singleton @Provides
     public static OkHttpClient provideOkHttpClient() {
         final OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -31,6 +35,10 @@ public class ApiModule {
         return builder.build();
     }
 
+    /**
+     * Retrofit的初始化，单例
+     * @return
+     */
     @Singleton @Provides
     public static Retrofit provideRetrofit(OkHttpClient okHttpClient) {
         Retrofit.Builder builder = new Retrofit.Builder();
@@ -41,6 +49,10 @@ public class ApiModule {
         return builder.build();
     }
 
+    /**
+     * 请求的初始化
+     * @return
+     */
     @Singleton @Provides
     public static GankService provideGankService(Retrofit retrofit) {
         return retrofit.create(GankService.class);
