@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.gqq.dagger2helper.di_google.DaggerActivity;
 import com.gqq.dagger2helper.di_rxjava.Dagger2Activity;
+import com.gqq.dagger2helper.di_rxjava.Dagger3Activity;
 
 import javax.inject.Inject;
 
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Demo[] createDemos() {
         return new Demo[]{
                 new Demo("Dagger的官方Demo", new Intent(this,DaggerActivity.class)),
-                new Demo("Dagger的实践",new Intent(this, Dagger2Activity.class))
+                new Demo("Dagger的实践",new Intent(this, Dagger2Activity.class)),
+                new Demo("Dagger的实践＋基类",new Intent(this, Dagger3Activity.class))
         };
     }
 
